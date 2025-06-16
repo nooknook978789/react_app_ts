@@ -1,12 +1,10 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
-const GridLayout = props => {
+const GridLayout = () => {
   return (
     <div>GridLayout</div>
   )
 }
 
-GridLayout.propTypes = {}
 
 export default GridLayout
