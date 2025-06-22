@@ -52,3 +52,29 @@ export default tseslint.config({
   },
 })
 ```
+
+## Alias Paths Configuration with SWC
+
+This project uses the SWC compiler for faster builds and Fast Refresh via `@vitejs/plugin-react-swc`. 
+
+Because SWC does not natively support the `paths` alias feature from `tsconfig.json` during build, we have configured alias paths explicitly in the Vite config to ensure proper module resolution.
+
+For example, in `vite.config.ts`, we set up alias paths like:
+
+```ts
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react-swc'
+import path from 'path'
+
+export default defineConfig({
+  plugins: [react()],
+  resolve: {
+    alias: {
+      '@components': path.resolve(__dirname, 'src/components'),
+      '@utils': path.resolve(__dirname, 'src/utils'),
+      // Add other aliases here
+    },
+  },
+})
+```
+
